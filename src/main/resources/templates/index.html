@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xlmns:th="http://www.thymeleaf.org" xmlns:xlmns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="site_content">
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>SURNAME</th>
+                    <th>EXAM</th>
+                    <th>MARK</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student: ${students}">
+                    <!--/*@thymesVar id="student" type="java/com/example/sprint1/models/Student"*/-->
+                    <td th:text="${student.getId()}" th:style="${student.getExam()>=50?'':'color:red;'}"></td>
+                    <td th:text="${student.getName()}" th:style="${student.getExam()>=50?'':'color:red;'}"></td>
+                    <td th:text="${student.getSurname()}" th:style="${student.getExam()>=50?'':'color:red;'}"></td>
+                    <td th:text="${student.getExam()}" th:style="${student.getExam()>=50?'':'color:red;'}"></td>
+                    <td th:text="${student.getMark()}" th:style="${student.getExam()>=50?'':'color:red;'}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</html>
